@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+  <div class="container">
+  <h1>Lead</h1>
+  <table border="1">
+    <tr>
+      <th>id</th>
+      <th>sfid</th>
+      <th>name</th>
+      <th>lastname</th>
+      <th>firstname</th>
+      <th>メール</th>
+      <th>会社</th>
+      <th>phone</th>
+    </tr>
+    <tr th:each="lead : ${records}">
+      <td th:text="${lead.id}">12345</td>
+      <td th:text="${lead.sfid}"></td>
+      <td> <a th:href="@{'/leaddetail?id=' + ${lead.id}}" th:text="${lead.name}"></a></td>
+      <td th:text="${lead.lastName}"</td>
+      <td th:text="${lead.firstName}">QI</td>
+      <td th:text="${lead.email}">abc@cde.com</td>
+      <td th:text="${lead.company}"></td>
+      <td th:text="${lead.phone}"></td>
+    </tr>
+  </table>
+  </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<body>
+  <div class="container">
+    <form action="#" th:action="@{/leadsave}" th:object="${LeadModel}" method="post">
+  <table border="0">
+    <tr>
+      <th>id: </th><td th:text="${record.id}"></td>
+    </tr>
+    <tr>
+      <th>sfid: </th><td th:text="${record.sfid}"></td>
+    </tr>
+    <tr>
+      <th>Name:</th><td><input type="text" name="name" th:value="${record.name}" /></td>
+    </tr>
+    <tr>
+      <th>Last Name: </th><td><input type="text" name="lastName" th:value="${record.lastName}" /></td>
+    </tr>
+    <tr>
+      <th>First Name:</th><td><input type="text" name="firstName" th:value="${record.firstName}" /></td>
+    </tr>
+    <tr>
+      <th>phone: </th><td><input type="text" name="phone" th:value="${record.phone}" /></td>
+    </tr>
+    <tr>
+      <th>postalcode: </th><td><input type="text" name="postal" th:value="${record.postal}" /></td>
+    </tr>
+    <tr>
+      <th>company: </th><td><input type="text" name="company" th:value="${record.company}" /></td>
+    </tr>
+    <tr>
+      <th>email: </th><td><input type="text" name="email" th:value="${record.email}" /></td>
+    </tr>
+    <tr>
+      <th>description: </th><td><textarea rows="5" name="description" th:text="${record.description}"></textarea></td>
+    </tr>
+  </table>
+        <p><input type="submit" value="保存" /> <input type="reset" value="Reset" /></p>
+        <input type="hidden" th:value="${record.id}" name="id"/>
+    </form>  </div>
+</body>
+</html>

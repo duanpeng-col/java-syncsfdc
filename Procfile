@@ -1,0 +1,1 @@
+web: java -jar target/colheroku-1.0.jar

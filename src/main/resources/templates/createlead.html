@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'createlead')}">
+<body>
+  <div class="container">
+    <form action="#" th:action="@{/newlead}" th:object="${LeadModel}" method="post">
+  <table border="0">
+    <tr>
+      <th>Last Name: </th><td><input type="text" name="lastName" /></td>
+    </tr>
+    <tr>
+      <th>First Name:</th><td><input type="text" name="firstName" /></td>
+    </tr>
+    <tr>
+      <th>メール</th><td><input type="text" name="email" /></td>
+    </tr>
+  </table>
+        <p><input type="submit" value="保存" /> <input type="reset" value="Reset" /></p>
+    </form>  </div>
+</body>
+</html>
