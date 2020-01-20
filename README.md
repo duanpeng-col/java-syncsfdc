@@ -4,7 +4,7 @@ A barebones Java app, which can easily be deployed to Heroku.
 
 This application supports the [Getting Started with Java on Heroku](https://devcenter.heroku.com/articles/getting-started-with-java) article - check it out.
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://dashboard.heroku.com/apps/arcane-beyond-30816)
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://dashboard.heroku.com/apps/arcane-beyond-30816/deploy/github)
 
 ## Running Locally
 
