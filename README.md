@@ -1,5 +1,5 @@
 
-# java-getting-started1234567
+# java-getting-started12345678
 
 A barebones Java app, which can easily be deployed to Heroku.
 
