@@ -68,7 +68,7 @@ jQuery(document).ready(function(){
 <script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //または false
-		embedded_svc.settings.language = ''; //たとえば、「en」または「en-US」を入力します
+		embedded_svc.settings.language = 'en'; //たとえば、「en」または「en-US」を入力します
 
 		//embedded_svc.settings.defaultMinimizedText = '...'; //(エキスパートとチャットにデフォルト設定)
 		//embedded_svc.settings.disabledMinimizedText = '...'; //(エージェントがオフラインにデフォルト設定)
@@ -90,7 +90,7 @@ jQuery(document).ready(function(){
 
 		embedded_svc.init(
 			'https://playful-goat-269723-dev-ed.my.salesforce.com',
-			'https://einsteinbot-col-developer-edition.na73.force.com/s/',
+			'https://einsteinbot-col-developer-edition.na73.force.com/',
 			gslbBaseURL,
 			'00D1I000003r3Sh',
 			'SnapinDeployment',
@@ -100,7 +100,7 @@ jQuery(document).ready(function(){
 				buttonId: '5731I000000Dqid',
 				baseLiveAgentURL: 'https://d.la2-c1-iad.salesforceliveagent.com/chat',
 				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I1I0000004FB6UAM_17037cfe677',
-				isOfflineSupportEnabled: false
+				isOfflineSupportEnabled: true
 			}
 		);
 	};
