@@ -2,6 +2,7 @@
 <head>
     <title>ログイン</title>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=no; target-densityDpi=device-dpi" />
   
   <link rel="stylesheet" href="https://ququplay.github.io/jquery-mobile-flat-ui-theme/css/jquery.mobile.flatui.css" />
@@ -54,5 +55,67 @@ jQuery(document).ready(function(){
 		</div>
 	</div>
 </div>
+<style type='text/css'>
+	.embeddedServiceHelpButton .helpButton .uiButton {
+		background-color: #005290;
+		font-family: "Arial", sans-serif;
+	}
+	.embeddedServiceHelpButton .helpButton .uiButton:focus {
+		outline: 1px solid #005290;
+	}
+</style>
+
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+<script type='text/javascript'>
+	var initESW = function(gslbBaseURL) {
+		embedded_svc.settings.displayHelpButton = true; //または false
+		embedded_svc.settings.language = ''; //たとえば、「en」または「en-US」を入力します
+
+		//embedded_svc.settings.defaultMinimizedText = '...'; //(エキスパートとチャットにデフォルト設定)
+		//embedded_svc.settings.disabledMinimizedText = '...'; //(エージェントがオフラインにデフォルト設定)
+
+		//embedded_svc.settings.loadingText = ''; //(読み込み中にデフォルト設定)
+		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(リリースのドメインを設定して、訪問者がチャットセッション中にサブドメインを移動できるようにします)
+
+		// チャット の設定
+		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+			// Returns a valid button ID.
+		//};
+		//embedded_svc.settings.prepopulatedPrechatFields = {}; //事前チャットフォームの項目の自動入力を設定
+		//embedded_svc.settings.fallbackRouting = []; //ボタン ID、ユーザ ID、または userId_buttonId の配列
+		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(デフォルトは [お問い合わせ])
+
+		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+		embedded_svc.settings.entryFeature = 'LiveAgent';
+
+		embedded_svc.init(
+			'https://playful-goat-269723-dev-ed.my.salesforce.com',
+			'https://einsteinbot-col-developer-edition.na73.force.com/',
+			gslbBaseURL,
+			'00D1I000003r3Sh',
+			'SnapinDeployment',
+			{
+				baseLiveAgentContentURL: 'https://c.la2-c1-iad.salesforceliveagent.com/content',
+				deploymentId: '5721I000000DtJJ',
+				buttonId: '5731I000000Dqid',
+				baseLiveAgentURL: 'https://d.la2-c1-iad.salesforceliveagent.com/chat',
+				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I1I0000004FB6UAM_17037cfe677',
+				isOfflineSupportEnabled: false
+			}
+		);
+	};
+
+	if (!window.embedded_svc) {
+		var s = document.createElement('script');
+		s.setAttribute('src', 'https://playful-goat-269723-dev-ed.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.onload = function() {
+			initESW(null);
+		};
+		document.body.appendChild(s);
+	} else {
+		initESW('https://service.force.com');
+	}
+</script>
 </body>
 </html>
