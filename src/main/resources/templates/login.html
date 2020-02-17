@@ -135,7 +135,7 @@ jQuery(document).ready(function(){
 	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //または false
 		embedded_svc.settings.language = 'jp'; //たとえば、「en」または「en-US」を入力します
-
+embedded_svc.settings.autoOpenPostChat = true;
 		//embedded_svc.settings.defaultMinimizedText = '...'; //(エキスパートとチャットにデフォルト設定)
 		//embedded_svc.settings.disabledMinimizedText = '...'; //(エージェントがオフラインにデフォルト設定)
 
@@ -153,7 +153,7 @@ jQuery(document).ready(function(){
 
 		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
 		embedded_svc.settings.entryFeature = 'LiveAgent';
-		embedded_svc.settings.autoOpenPostChat = true;
+		
 
 		embedded_svc.init(
 			'https://playful-goat-269723-dev-ed.my.salesforce.com',
@@ -170,8 +170,9 @@ jQuery(document).ready(function(){
 				isOfflineSupportEnabled: false
 			}
 		);
+		embedded_svc.settings.autoOpenPostChat = true;
 	};
-/*
+
 	if (!window.embedded_svc) {
 		var s = document.createElement('script');
 		s.setAttribute('src', 'https://playful-goat-269723-dev-ed.my.salesforce.com/embeddedservice/5.0/esw.min.js');
@@ -182,23 +183,12 @@ jQuery(document).ready(function(){
 	} else {
 		initESW('https://service.force.com');
 	}
-	*/
-	var viewWindow = function() {
-		if (!window.embedded_svc) {
-		var s = document.createElement('script');
-		s.setAttribute('src', 'https://playful-goat-269723-dev-ed.my.salesforce.com/embeddedservice/5.0/esw.min.js');
-		s.onload = function() {
-			initESW(null);
-		};
-		document.body.appendChild(s);
-	} else {
-		initESW('https://service.force.com');
-	}
-	};	
+	
+		
 </script>
 	
 	
-<a id="liveagent_button_online_5731I000000Dqii" href="javascript://Chat" style="display: none;" onclick="viewWindow()">オンラインチャットコンテンツ</a><div id="liveagent_button_offline_5731I000000Dqii" style="display: none;">オフラインチャットコンテンツ</div><script type="text/javascript">
+<a id="liveagent_button_online_5731I000000Dqii" href="javascript://Chat" style="display: none;" onclick="liveagent.startChat('5731I000000Dqii')">オンラインチャットコンテンツ</a><div id="liveagent_button_offline_5731I000000Dqii" style="display: none;">オフラインチャットコンテンツ</div><script type="text/javascript">
 if (!window._laq) { window._laq = []; }
 window._laq.push(function(){liveagent.showWhenOnline('5731I000000Dqii', document.getElementById('liveagent_button_online_5731I000000Dqii'));
 liveagent.showWhenOffline('5731I000000Dqii', document.getElementById('liveagent_button_offline_5731I000000Dqii'));
