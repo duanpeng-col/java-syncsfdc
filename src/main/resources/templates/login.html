@@ -120,6 +120,7 @@ jQuery(document).ready(function(){
 	}
 </script>
 -->
+	<!--
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
 		background-color: #005290;
@@ -193,6 +194,56 @@ if (!window._laq) { window._laq = []; }
 window._laq.push(function(){liveagent.showWhenOnline('5731I000000Dqii', document.getElementById('liveagent_button_online_5731I000000Dqii'));
 liveagent.showWhenOffline('5731I000000Dqii', document.getElementById('liveagent_button_offline_5731I000000Dqii'));
 });</script>
+-->
+	<style type='text/css'>
+	.embeddedServiceHelpButton .helpButton .uiButton {
+		background-color: #005290;
+		font-family: "Arial", sans-serif;
+	}
+	.embeddedServiceHelpButton .helpButton .uiButton:focus {
+		outline: 1px solid #005290;
+	}
+</style>
 
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+<script type='text/javascript'>
+	var initESW = function(gslbBaseURL) {
+		embedded_svc.settings.displayHelpButton = true; //または false
+		embedded_svc.settings.language = 'en'; //たとえば、「en」または「en-US」を入力します
+
+		//embedded_svc.settings.defaultMinimizedText = '...'; //(エキスパートとチャットにデフォルト設定)
+		//embedded_svc.settings.disabledMinimizedText = '...'; //(エージェントがオフラインにデフォルト設定)
+
+		//embedded_svc.settings.loadingText = ''; //(読み込み中にデフォルト設定)
+		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(リリースのドメインを設定して、訪問者がチャットセッション中にサブドメインを移動できるようにします)
+
+		// フロー の設定
+
+		embedded_svc.settings.enabledFeatures = ['Flows'];
+		embedded_svc.settings.entryFeature = 'Flows';
+
+		embedded_svc.init(
+			'https://playful-goat-269723-dev-ed.my.salesforce.com',
+			'https://einsteinbot-col-developer-edition.na73.force.com/3323',
+			gslbBaseURL,
+			'00D1I000003r3Sh',
+			'faq_search',
+			{
+				
+			}
+		);
+	};
+
+	if (!window.embedded_svc) {
+		var s = document.createElement('script');
+		s.setAttribute('src', 'https://playful-goat-269723-dev-ed.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.onload = function() {
+			initESW(null);
+		};
+		document.body.appendChild(s);
+	} else {
+		initESW('https://service.force.com');
+	}
+</script>
 </body>
 </html>
